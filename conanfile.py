@@ -7,7 +7,7 @@ from conan.tools.layout import cmake_layout
 class ModelRuntimeLibConan(ConanFile):
     # Package and Src information
     name = "cppMUSIC"
-    url = "https://github.com/amjadsaadeh/cpp-musict"
+    url = "https://github.com/amjadsaadeh/cpp-music"
     version = "0.0.1"
 
     license = "MIT License"
@@ -30,9 +30,9 @@ class ModelRuntimeLibConan(ConanFile):
     def requirements(self):
         self.requires("eigen/3.4.0")
 
-    def build_requirements(self):
-        self.build_requires("cmake_installer/3.15.1@conan/stable")
-        self.build_requires("catch2/2.9.2@catchorg/stable")
+    # def build_requirements(self):
+    #     self.build_requires("cmake_installer/3.15.1@conan/stable")
+    #     self.build_requires("catch2/2.9.2@catchorg/stable")
 
     # http://docs.conan.io/en/latest/reference/conanfile/methods.html#build
     def build(self):
