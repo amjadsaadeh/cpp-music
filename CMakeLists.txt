@@ -7,4 +7,5 @@ FILE(GLOB_RECURSE HEADERS CONFIGURE_DEPENDS include/*.h include/*.hpp)
 FILE(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS src/*.cpp src/*.h src/*.hpp)
 
 add_library(${LIB_NAME} ${SOURCES})
-target_include_directories(${LIB_NAME} ${PROJECT_SOURCE_DIR})
+target_include_directories(${LIB_NAME}
+    PUBLIC ${PROJECT_SOURCE_DIR})
