@@ -1,5 +1,10 @@
 // Basic data structures for receiver array construction
 
+#include <Eigen/Dense>
+
+namespace music {
+    
+
 class ReceiverArray
 {
 private:
@@ -8,3 +13,5 @@ public:
     ReceiverArray(/* args */);
     ~ReceiverArray();
 };
+
+}
