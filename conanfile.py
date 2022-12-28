@@ -29,10 +29,10 @@ class ModelRuntimeLibConan(ConanFile):
 
     def requirements(self):
         self.requires("eigen/3.4.0")
+        self.requires('gtest/cci.20210126')
 
-    # def build_requirements(self):
-    #     self.build_requires("cmake_installer/3.15.1@conan/stable")
-    #     self.build_requires("catch2/2.9.2@catchorg/stable")
+    def build_requirements(self):
+        self.build_requires("cmake/3.25.0")
 
     # http://docs.conan.io/en/latest/reference/conanfile/methods.html#build
     def build(self):
@@ -40,9 +40,7 @@ class ModelRuntimeLibConan(ConanFile):
         # cmake.definitions["WITH_UTIL"] = self.options.with_util
         cmake.configure(source_folder="src")
         cmake.build()
-        # cmake.parallel = False
-        if not tools.cross_building(self.settings):
-            cmake.test(output_on_failure=True)
+        #cmake.parallel = False
     
     def generate(self):
         tc = CMakeToolchain(self)
@@ -52,9 +50,10 @@ class ModelRuntimeLibConan(ConanFile):
         cmake_layout(self)
 
         self.cpp.source.includedirs = ['include']
-
+        
+        arch = self.settings['arch']
         build_type = self.settings.get_safe("build_type", default="Release")
-        build_folder = Path('build') / build_type
+        build_folder = Path('build') / arch / build_type
         self.folders.build = str(build_folder)
         self.folders.generators = str(build_folder / "conan")
 
@@ -65,7 +64,8 @@ class ModelRuntimeLibConan(ConanFile):
 
     # http://docs.conan.io/en/latest/reference/conanfile/methods.html#package-info
     def package_info(self):
-        self.cpp_info.libs.append('ModelRuntimeLib')
+        #TODO PACKAGING
+        #self.cpp_info.libs.append('libmusic.a')
 
     # http://docs.conan.io/en/latest/reference/conanfile/methods.html#package-id
     def package_id(self):
