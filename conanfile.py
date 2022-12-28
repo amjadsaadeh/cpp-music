@@ -55,7 +55,7 @@ class ModelRuntimeLibConan(ConanFile):
         build_type = self.settings.get_safe("build_type", default="Release")
         build_folder = Path('build') / arch / build_type
         self.folders.build = str(build_folder)
-        self.folders.generators = str(build_folder / "conan")
+        self.folders.generators = "conan"
 
     # http://docs.conan.io/en/latest/reference/conanfile/methods.html#package
     def package(self):
