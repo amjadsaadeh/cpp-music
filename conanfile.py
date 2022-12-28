@@ -66,6 +66,7 @@ class ModelRuntimeLibConan(ConanFile):
     def package_info(self):
         #TODO PACKAGING
         #self.cpp_info.libs.append('libmusic.a')
+        pass
 
     # http://docs.conan.io/en/latest/reference/conanfile/methods.html#package-id
     def package_id(self):
