@@ -8,7 +8,7 @@ FILE(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS src/*.cpp src/*.h src/*.hpp)
 
 add_library(${LIB_NAME} ${SOURCES})
 
-find_package(eigen CONFIG REQUIRED)
+find_package(Eigen3 CONFIG REQUIRED)
 
 target_include_directories(${LIB_NAME}
     PUBLIC "${PROJECT_SOURCE_DIR}/include"
