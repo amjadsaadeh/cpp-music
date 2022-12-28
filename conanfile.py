@@ -51,7 +51,7 @@ class ModelRuntimeLibConan(ConanFile):
 
         self.cpp.source.includedirs = ['include']
         
-        arch = self.settings['arch']
+        arch = self.settings.get_safe('arch', default='x86_64')
         build_type = self.settings.get_safe("build_type", default="Release")
         build_folder = Path('build') / arch / build_type
         self.folders.build = str(build_folder)
