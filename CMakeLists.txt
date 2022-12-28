@@ -7,5 +7,13 @@ FILE(GLOB_RECURSE HEADERS CONFIGURE_DEPENDS include/*.h include/*.hpp)
 FILE(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS src/*.cpp src/*.h src/*.hpp)
 
 add_library(${LIB_NAME} ${SOURCES})
+
+find_package(Eigen CONFIG REQUIRED)
+
 target_include_directories(${LIB_NAME}
-    PUBLIC "${PROJECT_SOURCE_DIR}/include")
+    PUBLIC "${PROJECT_SOURCE_DIR}/include"
+)
+
+target_link_libraries(${LIB_NAME}
+    Eigen::Eigen
+)
