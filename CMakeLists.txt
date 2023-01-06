@@ -24,11 +24,11 @@ find_package(GTest CONFIG REQUIRED)
 
 set(TESTS_NAME cppmusic_tests)
 
-FILE(GLOB_RECURSE TEST_SOURCES CONFIGURE_DEPENDS tests/*.cpp)
-add_executable(${TESTS_NAME} ${TESTS_NAME})
+FILE(GLOB_RECURSE TESTS_SOURCES CONFIGURE_DEPENDS tests/*.cpp)
+add_executable(${TESTS_NAME} ${TESTS_SOURCES})
 
 target_link_libraries(${TESTS_NAME}
     ${LIB_NAME}
-    GTest::GTest)
+    GTest::gtest)
     
 gtest_discover_tests(${TESTS_NAME})
