@@ -1,6 +1,6 @@
-#include "music/ReceiverArray.h"
+#include "cppmusic/ReceiverArray.h"
 
-namespace music {
+namespace cppmusic {
 
 ReceiverArray::ReceiverArray(/* args */)
 {

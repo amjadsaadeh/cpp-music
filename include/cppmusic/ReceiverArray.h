@@ -2,7 +2,7 @@
 
 #include <Eigen/Dense>
 
-namespace music {
+namespace cppmusic {
     
 
 class ReceiverArray
