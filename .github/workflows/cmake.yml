@@ -2,7 +2,19 @@ name: CMake
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - "main"
+      - "develop"
+      - "feature/**"
+      - "fix/**"
+    paths:
+      - 'include/**'
+      - 'src/**'
+      - '.github/**'
+      - 'tests/**'
+      - '**.sh'
+      - 'CMakeLists.txt'
+      - '.github/workflows/**'
   pull_request:
     branches: [ "main" ]
 
