@@ -1,0 +1,4 @@
+export CPLUS_INCLUDE_PATH="<path to cpp system includes (e.g. if you decelop on android)>"
+export C_INCLUDE_PATH="<path to c system includes (e.g. if you decelop on android)"
+export BUILD_DIR=build/armv8/Debug
+export BUILD_TYPE=Debug
