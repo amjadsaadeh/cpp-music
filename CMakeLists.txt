@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.23.1)
 
 project(CppMUSIC CXX)
-set(LIB_NAME libcppmusic)
+set(LIB_NAME cppmusic)
 
 FILE(GLOB_RECURSE HEADERS CONFIGURE_DEPENDS include/*.h include/*.hpp)
 FILE(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS src/*.cpp src/*.h src/*.hpp)
@@ -28,8 +28,12 @@ set(TESTS_NAME cppmusic_tests)
 FILE(GLOB_RECURSE TESTS_SOURCES CONFIGURE_DEPENDS tests/*.cpp)
 add_executable(${TESTS_NAME} ${TESTS_SOURCES})
 
+target_include_directories(${TESTS_NAME}
+    PUBLIC ${GTest_INCLUDE_DIRS})
+
 target_link_libraries(${TESTS_NAME}
     ${LIB_NAME}
-    GTest::gtest)
+    GTest::gtest
+    GTest::gtest_main)
     
 gtest_discover_tests(${TESTS_NAME})

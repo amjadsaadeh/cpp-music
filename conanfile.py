@@ -6,7 +6,7 @@ from conan.tools.layout import cmake_layout
 
 class ModelRuntimeLibConan(ConanFile):
     # Package and Src information
-    name = "cppMUSIC"
+    name = "cppmusic"
     url = "https://github.com/amjadsaadeh/cpp-music"
     version = "0.0.1"
 
@@ -17,6 +17,12 @@ class ModelRuntimeLibConan(ConanFile):
     # Binary relevant attributes
     settings = "os", "compiler", "build_type", "arch"
     generators = "CMakeDeps"
+    options = {
+        'require_cmake': [True, False]
+    }
+    default_options = {
+        'require_cmake': True
+    }
 
     exports_sources = "src/*"
 
@@ -32,7 +38,8 @@ class ModelRuntimeLibConan(ConanFile):
         self.requires('gtest/cci.20210126')
 
     def build_requirements(self):
-        self.build_requires("cmake/3.25.0")
+        if self.options.require_cmake:
+            self.build_requires("cmake/3.25.0")
 
     # http://docs.conan.io/en/latest/reference/conanfile/methods.html#build
     def build(self):
