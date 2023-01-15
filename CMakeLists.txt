@@ -12,7 +12,6 @@ find_package(Eigen3 CONFIG REQUIRED)
 
 target_include_directories(${LIB_NAME}
     PUBLIC "${PROJECT_SOURCE_DIR}/include"
-    PUBLIC "${Eigen3_INCLUDE_DIRS}"
 )
 
 target_link_libraries(${LIB_NAME}
