@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.23.1)
 
 project(CppMUSIC CXX)
+
+enable_testing()
+
 set(LIB_NAME cppmusic)
 
 FILE(GLOB_RECURSE HEADERS CONFIGURE_DEPENDS include/*.h include/*.hpp)
