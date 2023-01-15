@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 #include "cppmusic/ReceiverArray.h"
 
-TEST(ReceiverArray, Consteuctor) {
+TEST(ReceiverArray, ConstructorNoThrow) {
     cppmusic::ReceiverArray();
 }
 
